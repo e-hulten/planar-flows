@@ -14,7 +14,7 @@ flow_length = 32
 dim = 2
 n_samples = 500
 batch_size = 128
-lr = 6e-4
+lr = 7.5e-4
 xlim = ylim = 5
 # ------------------------------------
 
