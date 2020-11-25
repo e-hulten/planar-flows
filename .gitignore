@@ -1,2 +1,8 @@
 __pycache__
-train_plots 
+.vscode
+train_plots/*
+models/*
+results/*
+separate
+utils/plot_different_Ks.py
+utils/plot_misc.py
