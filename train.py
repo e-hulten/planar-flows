@@ -1,4 +1,3 @@
-import os
 import torch
 import torch.nn
 import matplotlib.pyplot as plt
@@ -23,9 +22,10 @@ if __name__ == "__main__":
     bound = VariationalLoss(density)
     optimiser = torch.optim.Adam(model.parameters(), lr=lr)
 
-    for epoch in range(1, num_batches + 1):
+    # Train model.
+    for batch_num in range(1, num_batches + 1):
         # Get batch from N(0,I).
-        batch = torch.zeros(batch_size, dim).normal_(mean=0, std=1)
+        batch = torch.zeros(size=(batch_size, 2)).normal_(mean=0, std=1)
         # Pass batch through flow.
         zk, log_jacobians = model(batch)
         # Compute loss under target distribution.
@@ -35,26 +35,12 @@ if __name__ == "__main__":
         loss.backward()
         optimiser.step()
 
-        if epoch % 1000 == 0:
-            print(f"(epoch {epoch:05d}/{num_batches}) loss: {loss}")
+        if batch_num % 1000 == 0:
+            print(f"(batch_num {batch_num:05d}/{num_batches}) loss: {loss}")
 
-        if epoch == 1 or epoch % 100 == 0:
-            ax = plot_transformation(model, xlim=xlim, ylim=xlim)
-
-            ax.text(
-                0,
-                ylim - 2,
-                "Flow length: {}\nDensity of one batch, iteration #{:06d}\nLearning rate: {}".format(
-                    flow_length, epoch, lr
-                ),
-                horizontalalignment="center",
-            )
-            plt.savefig(
-                "train_plots/" + "iteration_{:06d}.png".format(epoch),
-                bbox_inches="tight",
-                pad_inches=0.5,
-            )
-            plt.close()
+        if batch_num == 1 or batch_num % 100 == 0:
+            # Save plots during training. Plots are saved to the 'train_plots' folder.
+            plot_training(model, flow_length, batch_num, lr, axlim)
 
     if torch.isnan(log_jacobians).sum() == 0:
         torch.save(

@@ -1,5 +1,6 @@
 __pycache__
 .vscode
+.ipynb_checkpoints
 train_plots/*
 models/*
 results/*

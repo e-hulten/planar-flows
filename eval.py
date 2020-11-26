@@ -63,7 +63,7 @@ print(
     f"Success: Plot of estimated {target_distr} saved at 'results/{FNAME_ESTIMATED}'."
 )
 
-plot_comparison(model, density, target_distr, flow_length, xlim, ylim)
+plot_comparison(model, target_distr, flow_length)
 print(
     f"Success: Comparison of true vs. estimated {target_distr} saved at 'results/{target_distr}_K{flow_length}_comparison.pdf'."
 )
