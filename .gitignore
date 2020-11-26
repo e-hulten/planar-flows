@@ -3,6 +3,8 @@ __pycache__
 train_plots/*
 models/*
 results/*
+!results/ring_true_density.png
+!results/ring_K32_estimated_density.png
 separate
 utils/plot_different_Ks.py
 utils/plot_misc.py

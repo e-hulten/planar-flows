@@ -51,7 +51,7 @@ def plot_samples(z):
     return ax
 
 
-def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None):
+def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None, cmap="Blues"):
     base_distr = torch.distributions.MultivariateNormal(torch.zeros(2), torch.eye(2))
     x = torch.linspace(-xlim, xlim, n)
     xx, yy = torch.meshgrid(x, x)
@@ -72,7 +72,7 @@ def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None):
         zk[:, 0].detach().data.reshape(n, n),
         zk[:, 1].detach().data.reshape(n, n),
         qk.detach().data.reshape(n, n),
-        cmap="Blues",
+        cmap=cmap,
         rasterized=True,
     )
 
@@ -87,8 +87,11 @@ def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None):
         labelright=False,
         labelbottom=False,
     )
+    if cmap == "Blues":
+        ax.set_facecolor(plt.cm.Blues(0.0))
+    elif cmap == "Reds":
+        ax.set_facecolor(plt.cm.Reds(0.0))
 
-    ax.set_facecolor(plt.cm.Blues(0.0))
     return ax
 
 

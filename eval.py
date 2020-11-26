@@ -44,7 +44,7 @@ print(f"Success: Plot of true {target_distr} saved at 'results/{FNAME_TRUE}'.")
 # Plot and save estimated density.
 batch = torch.zeros(n_samples, dim).normal_(mean=0, std=1)
 z = model(batch)[0].detach().numpy()
-ax = plot_transformation(model, xlim=xlim, ylim=ylim)
+ax = plot_transformation(model, xlim=xlim, ylim=ylim, cmap="Reds")
 ax.text(
     0,
     ylim - 1,
