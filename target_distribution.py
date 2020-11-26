@@ -63,7 +63,7 @@ class TargetDistribution:
                 return u
 
             return U_4
-        elif str == "ring":
+        elif name == "ring":
 
             def ring_density(z):
                 exp1 = torch.exp(-0.5 * ((z[:, 0] - 2) / 0.8) ** 2)

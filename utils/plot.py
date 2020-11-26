@@ -72,7 +72,7 @@ def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None):
         zk[:, 0].detach().data.reshape(n, n),
         zk[:, 1].detach().data.reshape(n, n),
         qk.detach().data.reshape(n, n),
-        cmap="Reds",
+        cmap="Blues",
         rasterized=True,
     )
 
@@ -88,7 +88,7 @@ def plot_transformation(model, n=500, xlim=4, ylim=4, ax=None):
         labelbottom=False,
     )
 
-    ax.set_facecolor(plt.cm.Reds(0.0))
+    ax.set_facecolor(plt.cm.Blues(0.0))
     return ax
 
 

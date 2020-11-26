@@ -9,13 +9,13 @@ from utils.plot import plot_transformation
 
 if __name__ == "__main__":
     # ------------ parameters ------------
-    target_distr = "U_2"  # U_1, U_2, U_3, U_4, ring
-    flow_length = 16
+    target_distr = "ring"  # U_1, U_2, U_3, U_4, ring
+    flow_length = 32
     dim = 2
-    num_batches = 10000
+    num_batches = 20000
     batch_size = 128
     lr = 6e-4
-    xlim = ylim = 5  # 5 for U_1 to U_4, 7 for ring
+    xlim = ylim = 7  # 5 for U_1 to U_4, 7 for ring
     # ------------------------------------
 
     density = TargetDistribution(target_distr)

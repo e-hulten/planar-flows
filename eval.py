@@ -1,7 +1,4 @@
-import os
-import numpy as np
 import torch
-import torch.nn as nn
 import matplotlib.pyplot as plt
 from planar_flow import PlanarFlow
 from target_distribution import TargetDistribution
@@ -9,13 +6,13 @@ from utils.plot import plot_density, plot_transformation, plot_comparison
 from utils.gif import make_gif_from_train_plots
 
 # ------------ parameters ------------
-target_distr = "U_2"  # U_1, U_2, U_3, U_4, ring
-flow_length = 16
+target_distr = "ring"  # U_1, U_2, U_3, U_4, ring
+flow_length = 32
 dim = 2
 n_samples = 500
 batch_size = 128
 lr = 6e-4
-xlim = ylim = 5
+xlim = ylim = 7
 
 FNAME_TRUE = f"results/{target_distr}_true_density.png"
 FNAME_ESTIMATED = f"results/{target_distr}_K{flow_length}_estimated_density.png"
