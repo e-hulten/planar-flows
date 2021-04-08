@@ -6,7 +6,7 @@ PyTorch implementation of planar flows as presented in the seminal paper "Variat
 
 The experiments highlight the flexibility of normalising flows by showing that they can transform a standard Gaussian into multimodal and periodic densities. The animations are added to show how the normalising flow gradually expands and contracts the input space into the desired target density. By feeding samples from a standard bivariate Gaussian into the trained flow network, we can draw new samples from the target density. I have implemented the invertibility condition for planar flows from the appendix of [1], so we can also go the other way, i.e., estimate the likelihood of a point from the target density using the initial Gaussian density and the sum of the log-det-Jacobians of the transformations. 
 
-[1] http://proceedings.mlr.press/v37/rezende15.html
+[1] https://arxiv.org/abs/1505.05770v6
 
 | True density | Estimated density | Animation |
 |--------------|-------------------|-----------|
